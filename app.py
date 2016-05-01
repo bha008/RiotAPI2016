@@ -9,7 +9,9 @@ rw = ritoWrap(os.environ['RIOT_API_KEY'])
 
 @app.route('/')
 def home():
-    return render_template('index.html', score=rw.request_mastery_score('19659789'))
+    return render_template('index.html',
+                           score=rw.request_mastery_score('19659789'),
+                           top_champs=rw.request_top_champs('19659789'))
     # return render_template('index.html')
 
 if __name__ == '__main__':

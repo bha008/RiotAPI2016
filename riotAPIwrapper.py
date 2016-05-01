@@ -53,10 +53,28 @@ class ritoWrap:
         #         lim.add_request()
         return r.json()
 
+    def request_mastery_for_champ(self, summ_id, champ_id, region=None):
+        if region is None:
+            region = self.default_region
+        return self.base_request('/championmastery/location/{platformId}/player/{playerId}/champion/{championId}'.format(
+            platformId=platforms[region],
+            playerId=summ_id,
+            championId=champ_id),
+            region
+        )
+
     def request_mastery_score(self, summ_id, region=None):
         if region is None:
             region = self.default_region
         return self.base_request('/championmastery/location/{platformId}/player/{playerId}/score'.format(
-            platformId =  platforms[region],
-            playerId = summ_id),
+            platformId=platforms[region],
+            playerId=summ_id),
+            region)
+
+    def request_top_champs(self, summ_id, region=None):
+        if region is None:
+            region = self.default_region
+        return self.base_request('/championmastery/location/{platformId}/player/{playerId}/topchampions'.format(
+            platformId=platforms[region],
+            playerId=summ_id),
             region)
