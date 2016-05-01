@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Please enter info</h1>
+    <br>
+    <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{request.form.username }}">
+        <select name="region">
+            <option value="na">North America</option>
+            <option value="euw">Europe West</option>
+            <option value="eune">Europe Nordic & East</option>
+            <option value="br">Brazil</option>
+            <option value="kr">Korea</option>
+            <option value="tr">Turkey</option>
+            <option value="ru">Russsia</option>
+            <option value="lan">Latin America North</option>
+            <option value="las">Latin America South</option>
+            <option value="oce">Oceania</option>
+        </select>
+        <input class="btn btn-default" type="submit" value="Search">
+    </form>
+</body>
+</html>
