@@ -19,7 +19,6 @@ def home():
 
 @app.route('/info/<region>/<username>')
 def info(region=None, username=None):
-    print(region, username)
     summ_id = str(rw.request_id_from_name(username, region=region))
     return render_template('index.html',
                            username=username,
