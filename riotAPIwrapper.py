@@ -78,3 +78,20 @@ class ritoWrap:
             platformId=platforms[region],
             playerId=summ_id),
             region)
+
+    def request_all_champs(self, summ_id, region=None):
+        if region is None:
+            region = self.default_region
+        return self.base_request('/championmastery/location/{platformId}/player/{playerId}/champions'.format(
+            platformId=platforms[region],
+            playerId=summ_id),
+            region)
+
+    def request_id_from_name(self, username, region=None):
+        if region is None:
+            region = self.default_region
+        r = self.base_request('/api/lol/{region}/v1.4/summoner/by-name/{summonerNames}'.format(
+            region=region,
+            summonerNames=username),
+            region)
+        return r[username]['id']
