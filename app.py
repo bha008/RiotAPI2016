@@ -20,7 +20,7 @@ def home():
 @app.route('/info/<region>/<username>')
 def info(region=None,username=None):
     print(region, username)
-    summ_id = str(rw.request_id_from_name(username,region=region))
+    summ_id = str(rw.request_id_from_name(username, region=region))
     return render_template('index.html',
                            score=rw.request_mastery_score(summ_id, region=region),
                            top_champs=rw.request_top_champs(summ_id, region=region))
