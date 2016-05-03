@@ -44,7 +44,6 @@ class ritoWrap:
         Constructs the URL endpoint using the endpoint parameter and performs
         a call to Riot API.
 
-        TODO: handle error codes from Riot API
 
         :param endpoint: URL endpoint for Riot's RESTful API
         :param region: the region used in building URL's
@@ -52,6 +51,8 @@ class ritoWrap:
         :param kwargs: keeping this here for future use (currently not used)
         :return: returns a JSON string from the server
         """
+
+
         if region is None:
             region = self.default_region
         args = {'api_key': self.api_key}
@@ -68,6 +69,7 @@ class ritoWrap:
             ),
             params=args
         )
+        # TODO: handle error codes from Riot API
         # if not static:
         #     for lim in self.limits:
         #         lim.add_request()
@@ -92,6 +94,12 @@ class ritoWrap:
         )
 
     def request_mastery_score(self, summ_id, region=None):
+        """
+
+        :param summ_id:
+        :param region:
+        :return:
+        """
         if region is None:
             region = self.default_region
         return self.base_request('/championmastery/location/{platformId}/player/{playerId}/score'.format(
@@ -100,6 +108,12 @@ class ritoWrap:
             region)
 
     def request_top_champs(self, summ_id, region=None):
+        """
+
+        :param summ_id:
+        :param region:
+        :return:
+        """
         if region is None:
             region = self.default_region
         return self.base_request('/championmastery/location/{platformId}/player/{playerId}/topchampions'.format(
@@ -108,6 +122,12 @@ class ritoWrap:
             region)
 
     def request_all_champs(self, summ_id, region=None):
+        """
+
+        :param summ_id:
+        :param region:
+        :return:
+        """
         if region is None:
             region = self.default_region
         return self.base_request('/championmastery/location/{platformId}/player/{playerId}/champions'.format(
@@ -116,10 +136,16 @@ class ritoWrap:
             region)
 
     def request_id_from_name(self, username, region=None):
+        """
+
+        :param username:
+        :param region:
+        :return:
+        """
         if region is None:
             region = self.default_region
         r = self.base_request('/api/lol/{region}/v1.4/summoner/by-name/{summonerNames}'.format(
             region=region,
-            summonerNames=username),
+            summonerNames=username.lower()),
             region)
         return r[username]['id']

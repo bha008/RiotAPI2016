@@ -9,6 +9,15 @@ rw = ritoWrap(os.environ['RIOT_API_KEY'])
 
 @app.route('/', methods=['GET','POST'])
 def home():
+    """
+    Landing page to prompt user for information
+
+
+
+    :return:
+    """
+
+    # TODO: Error checking on user input
     error = ''
     if request.method == 'POST':
         username = request.form['username']
@@ -19,6 +28,13 @@ def home():
 
 @app.route('/info/<region>/<username>')
 def info(region=None, username=None):
+    """
+    Displays some data computed from Riot API
+
+    :param region:
+    :param username:
+    :return:
+    """
     summ_id = str(rw.request_id_from_name(username, region=region))
     return render_template('index.html',
                            username=username,
