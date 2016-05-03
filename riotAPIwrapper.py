@@ -148,4 +148,4 @@ class ritoWrap:
             region=region,
             summonerNames=username.lower()),
             region)
-        return r[username]['id']
+        return r[username.lower()]['id']
