@@ -36,10 +36,11 @@ def info(region=None, username=None):
     :return:
     """
     summ_id = str(rw.request_id_from_name(username, region=region))
+    top_Champs=rw.request_top_champs(summ_id, region=region)
     return render_template('index.html',
                            username=username,
-                           score=rw.request_mastery_score(summ_id, region=region),
-                           top_champs=rw.request_top_champs(summ_id, region=region))
+                           score=rw.request_mastery_score(summ_id, region=region), 
+						   top_champs=top_Champs)
 
 if __name__ == '__main__':
     app.run(debug=True)
