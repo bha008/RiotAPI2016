@@ -233,3 +233,11 @@ class ritoWrap:
             summonerNames=username.lower().strip()),
             region)
         return r[username.lower().strip()]['id']
+
+    def request_master_league_summoners(self, region=None):
+        if region is None:
+            region = self.default_region
+        return self.base_request('/api/lol/{region}/v2.5/league/master'.format(
+            region=region),
+            region,
+            type='RANKED_SOLO_5x5')
