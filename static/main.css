@@ -5,3 +5,14 @@
     margin: auto;
     text-align: center;
 }
+
+body{
+	background-image: url("/static/assets/images/bg/endOfTutorialBackground.png");
+	background-repeat: no-repeat;
+
+	background-size: cover;
+}
+
+h1 {
+    text-shadow: 1px 1px #000000;
+}
