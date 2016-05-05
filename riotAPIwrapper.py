@@ -18,6 +18,8 @@ OCEANIA = 'oce'
 RUSSIA = 'ru'
 TURKEY = 'tr'
 
+solo_queue, ranked_5s, ranked_3s = 'RANKED_SOLO_5x5', 'RANKED_TEAM_5x5', 'RANKED_TEAM_3x3'
+
 platforms = {
     BRAZIL: 'BR1',
     EUROPE_NORDIC_EAST: 'EUN1',
@@ -243,10 +245,18 @@ class ritoWrap:
             region)
         return r[summonerId]['name']
 
-    def request_master_league_summoners(self, region=None):
+    def request_master_league_summoners(self, region=None, game_type=solo_queue):
         if region is None:
             region = self.default_region
         return self.base_request('/api/lol/{region}/v2.5/league/master'.format(
             region=region),
             region,
-            type='RANKED_SOLO_5x5')
+            type=game_type)
+
+    def request_challenger_league_summoners(self, region=None, game_type=solo_queue):
+        if region is None:
+            region = self.default_region
+        return self.base_request('/api/lol/{region}/v2.5/league/challenger'.format(
+            region=region),
+            region,
+            type=game_type)
