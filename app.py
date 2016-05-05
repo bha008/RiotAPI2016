@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, Response, request, json
 from riotAPIwrapper import ritoWrap
+from senpai_finder import SenpaiFinder
 import os
 # ...
 
@@ -36,6 +37,7 @@ def info(region=None, username=None):
     :return:
     """
     summ_id = str(rw.request_id_from_name(username, region=region))
+
     with open('static/assets/riot_champion_data/lol-champions_6_8_1.json') as riot_champ_file:
         json_data = json.load(riot_champ_file)
         # print 'keys in temp:', json_data.keys()
@@ -59,11 +61,15 @@ def info(region=None, username=None):
 
     riot_champ_file.close()
 
+    top_champs = rw.request_top_champs(summ_id, region=region)
+    league = json.load(open('out_challenger.json'))
+    sf = SenpaiFinder(league,top_champs)
     return render_template('index.html',
                            username=username,
                            score=rw.request_mastery_score(summ_id, region=region), 
-						   top_champs=rw.request_top_champs(summ_id, region=region),
-                           riot_champ_file=json_data
+						   top_champs=top_champs,
+                           riot_champ_file=json_data,
+                           senpai=rw.request_name_from_id(sf.findSenpai(), region=region)
                            )
 
 if __name__ == '__main__':
