@@ -8,14 +8,13 @@
 
 <h2>Top 3 Champion Scores</h2>
 {% for champ in top_champs %}
-    <p> {{champ}} </p>
+    <p>{{riot_champ_file['data'][champ.championId|string]['name']}}
+    <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
+    [champ.championId|string]['image'].get('full')}}" />
+    </p>
+
+
 {% endfor %}
-
-<p>{{champ_name_0}} {{champ_name_1}} {{champ_name_2}} </p>
-<img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{champ_name_png_0}}" /> 
-<img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{champ_name_png_1}}" /> 
-<img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{champ_name_png_2}}" /> 
-
 
 {% endblock %}
 

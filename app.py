@@ -72,7 +72,8 @@ def info(region=None, username=None):
                            champ_name_1=champ_name_1,
                            champ_name_png_1=champ_name_png_1,
                            champ_name_2 = champ_name_2,
-                           champ_name_png_2 = champ_name_png_2
+                           champ_name_png_2 = champ_name_png_2,
+                           riot_champ_file=json_data
                            )
 
 if __name__ == '__main__':
