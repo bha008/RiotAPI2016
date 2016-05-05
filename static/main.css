@@ -20,12 +20,11 @@ h1 {
 #base_body{
 
     margin: 50px;
-
-	background-image: url("/static/assets/images/bg/page-bg.jpg");
+/*
+	background-image: url("/static/assets/images/bg/confirm_bg.jpg");
 	background-repeat: no-repeat;
-
 	background-size: cover;
-
+*/
 }
 #senpai_text {
 -webkit-animation:rainbow 1s infinite;
@@ -114,4 +113,9 @@ img{
 
  .col-sm-4:hover {
     background-position: 0 0;
+}
+
+.myCarousel{
+
+
 }

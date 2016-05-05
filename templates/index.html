@@ -4,24 +4,58 @@
 
 <h1> {{username}}'s Mastery Info!</h1>
 <p>Total Mastery Score: {{score}}</p>
-
 <h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
 <h4>Top 3 Champion Scores</h4>
 <div class="outer_champ_info">
-{% for champ in top_champs %}
+    {% for champ in top_champs %}
     <div class="col-sm-4">
-    <h5>{{riot_champ_file['data'][champ.championId|string]['name']}}
-    </h5>
+        <h5>
+            {{riot_champ_file['data'][champ.championId|string]['name']}}
+        </h5>
         <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
         [champ.championId|string]['image'].get('full')}}" />
-        <p>Champion level: {{champ.championLevel}}<br>
-        Champion Score: {{champ.championPointsSinceLastLevel}}</p>
+        <p>
+            Champion level: {{champ.championLevel}}<br>
+            Champion Score: {{champ.championPointsSinceLastLevel}}
+        </p>
     </div>
 
 
-{% endfor %}
-    </div>
+    {% endfor %}
+</div>
 
+<!-- carousel section -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        {% for champs in top_champs %}
+        <div class="item{% if loop.index == 1 %} active{% endif %}">
+            <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
+        [champs.championId|string]['image'].get('full')}}" alt="test1">
+            <div class="carousel-caption"></div>
+        </div>
+
+        {% endfor %}
+            </div>
+
+    <!-- Controls -->
+    <a class="home-icon left" href="#myCarousel" role="button" data-slide="prev">
+        <i class="fa fa-arrow-left"></i>
+    </a>
+    <a class="home-icon right" href="#myCarousel" role="button" data-slide="next">
+        <i class="fa fa-arrow-right" style="text-align: right;"></i>
+    </a>
+
+</div>
 {% endblock %}
+
 
 </body>
