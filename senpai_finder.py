@@ -11,8 +11,9 @@ class SenpaiFinder:
         :return:
         """
         self.summoner = summoner
-        self.league = leagueven
+        self.league = league
         self.summoner_top_champs = summoner_top_champs
+        self.generateScoreVector(summoner_top_champs)
 
     def findSenpai(self):
         for player in self.league:
@@ -25,4 +26,5 @@ class SenpaiFinder:
 
     def generateScoreVector(self, top_champs):
         # TODO: create an array of double where the index is championId and the value at the index is level*scoreSinceLastLevel
-        pass
+        current_champs = json.load(open('static/assets/riot_champion_data/lol-champions_6_8_1.json'))
+        print current_champs.keys()
