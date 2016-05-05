@@ -20,11 +20,11 @@ h1 {
 #base_body{
 
     margin: 50px;
-/*
+
 	background-image: url("/static/assets/images/bg/confirm_bg.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-*/
+
 }
 #senpai_text {
 -webkit-animation:rainbow 1s infinite;
@@ -96,26 +96,31 @@ animation:rainbow 1s infinite;
     	color:lightblue;
 }
 
-
+.myCarousel{
+    position: relative;
+    width: 500px;
+    align-content: center;
+    margin: auto;
+    text-align: center;
+}
 
 .col-sm-4{
+/*
     background-image: linear-gradient(#1e5799, #b5d2ee);
     background-size: auto 200%;
     background-position: 0 80%;
     opacity: 0.9;
     transition: background-position 0.5s;
-    color:black;
+*/
+    background-color:$cccccc;
 
 }
 img{
     opacity : 1.0;
 }
 
- .col-sm-4:hover {
+.col-sm-4:hover {
     background-position: 0 0;
 }
 
-.myCarousel{
 
-
-}
