@@ -2,11 +2,11 @@
 {% block content %}
 
 
-<body id="index_body">
 <h1> {{username}}'s Mastery Info!</h1>
 <p>Total Mastery Score: {{score}}</p>
 
 <h2>Top 3 Champion Scores</h2>
+<div class="outer_champ_info">
 {% for champ in top_champs %}
     <div class="champ_info">
     <h3>{{riot_champ_file['data'][champ.championId|string]['name']}}
@@ -21,6 +21,7 @@
 
 
 {% endfor %}
+    </div>
 
 {% endblock %}
 
