@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-body{
+#form_body{
 	background-image: url("/static/assets/images/bg/endOfTutorialBackground.png");
 	background-repeat: no-repeat;
 
@@ -17,3 +17,12 @@ h1 {
     text-shadow: 1px 1px #000000;
 }
 
+
+#index_body{
+    position: relative;
+    width: 500;
+    align-content: center;
+    margin: auto;
+    text-align: center;
+	color: black
+}
