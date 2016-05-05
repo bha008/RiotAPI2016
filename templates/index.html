@@ -6,23 +6,7 @@
 <p>Total Mastery Score: {{score}}</p>
 <h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
 <h4>Top 3 Champion Scores</h4>
-<div class="outer_champ_info">
-    {% for champ in top_champs %}
-    <div class="col-sm-4">
-        <h5>
-            {{riot_champ_file['data'][champ.championId|string]['name']}}
-        </h5>
-        <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
-        [champ.championId|string]['image'].get('full')}}" />
-        <p>
-            Champion level: {{champ.championLevel}}<br>
-            Champion Score: {{champ.championPointsSinceLastLevel}}
-        </p>
-    </div>
 
-
-    {% endfor %}
-</div>
 
 <!-- carousel section -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500">
@@ -30,7 +14,7 @@
     <div class="carousel-inner" role="listbox">
         {% for champs in top_champs %}
         <div class="item{% if loop.index == 1 %} active{% endif %}">
-            <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
+            <img class="img-responsive center-block" src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
         [champs.championId|string]['image'].get('full')}}" alt="test1">
             <div class="carousel-caption"></div>
         </div>
@@ -49,6 +33,24 @@
     <span class="sr-only">Next</span>
   </a>
 
+</div>
+
+<div class="outer_champ_info">
+    {% for champ in top_champs %}
+    <div class="col-sm-4">
+        <h5>
+            {{riot_champ_file['data'][champ.championId|string]['name']}}
+        </h5>
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
+        [champ.championId|string]['image'].get('full')}}" />
+        <p>
+            Champion level: {{champ.championLevel}}<br>
+            Champion Score: {{champ.championPointsSinceLastLevel}}
+        </p>
+    </div>
+
+
+    {% endfor %}
 </div>
 {% endblock %}
 
