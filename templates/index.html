@@ -5,14 +5,13 @@
 <h1> {{username}}'s Mastery Info!</h1>
 <p>Total Mastery Score: {{score}}</p>
 
-<h2>Your LoL Senpai is: {{ senpai }}</h2>
-
-<h2>Top 3 Champion Scores</h2>
+<h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
+<h4>Top 3 Champion Scores</h4>
 <div class="outer_champ_info">
 {% for champ in top_champs %}
     <div class="col-sm-4">
-    <h3>{{riot_champ_file['data'][champ.championId|string]['name']}}
-    </h3>
+    <h5>{{riot_champ_file['data'][champ.championId|string]['name']}}
+    </h5>
         <img src="http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/{{riot_champ_file['data']
         [champ.championId|string]['image'].get('full')}}" />
         <p>Champion level: {{champ.championLevel}}<br>
