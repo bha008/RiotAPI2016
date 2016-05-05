@@ -199,16 +199,11 @@ class ritoWrap:
         """
         if region is None:
             region = self.default_region
-        top_champs_json=self.base_request('/championmastery/location/{platformId}/player/{playerId}/topchampions'.format(
+        return self.base_request('/championmastery/location/{platformId}/player/{playerId}/topchampions'.format(
             platformId=platforms[region],
             playerId=summ_id),
             region,
             count=count)
-        champ_id0 = str(top_champs_json[0]['championId'])
-        champ_id1 = str(top_champs_json[1]['championId'])
-        champ_id2 = str(top_champs_json[2]['championId'])
-        return top_champs_json, champ_id0, champ_id1, champ_id2
-
 
     def request_all_champs(self, summ_id, region=None):
         """
