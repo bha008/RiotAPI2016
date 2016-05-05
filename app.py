@@ -61,16 +61,16 @@ def info(region=None, username=None):
 
     riot_champ_file.close()
 
-    top_champs = rw.request_top_champs(summ_id, region=region)
-    league = json.load(open('out_challenger.json'))
-    sf = SenpaiFinder(league,top_champs)
+    top_champs = rw.request_all_champs(summ_id, region=region)
+    league = json.load(open('solo_allchamps_challenger.json'))
+    sf = SenpaiFinder(league, top_champs)
     return render_template('index.html',
-                           username=username,
-                           score=rw.request_mastery_score(summ_id, region=region), 
-						   top_champs=top_champs,
-                           riot_champ_file=json_data,
-                           senpai=rw.request_name_from_id(sf.findSenpai(), region=region)
-                           )
+                            username=username,
+                            score=rw.request_mastery_score(summ_id, region=region),
+                            top_champs=top_champs,
+                            riot_champ_file=json_data,
+                            senpai=rw.request_name_from_id(sf.findSenpai(), region=region)
+                            )
 
 if __name__ == '__main__':
     app.run(debug=True)
