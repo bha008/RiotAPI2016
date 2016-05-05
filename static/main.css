@@ -11,12 +11,22 @@
 	background-repeat: no-repeat;
 
 	background-size: cover;
+
 }
 
 h1 {
     text-shadow: 1px 1px #000000;
 }
+#base_body{
 
+    margin: 50px;
+
+	background-image: url("/static/assets/images/bg/page-bg.jpg");
+	background-repeat: no-repeat;
+
+	background-size: cover;
+
+}
 #senpai_text {
 -webkit-animation:rainbow 1s infinite;
 -ms-animation:rainbow 1s infinite;
@@ -78,30 +88,28 @@ animation:rainbow 1s infinite;
 
 
 .container{
+
     position: relative;
 
     align-content: center;
     margin: auto;
     text-align: center;
-	color: black;
+    	color:lightblue;
 }
 
-.outer_champ_info{
-width: 100%;
-height: 400px;
-/*
-background-color: #000;
-*/
-border: 1px solid white;
-
-}
 
 
 .col-sm-4{
     background-image: linear-gradient(#1e5799, #b5d2ee);
     background-size: auto 200%;
     background-position: 0 80%;
+    opacity: 0.9;
     transition: background-position 0.5s;
+    color:black;
+
+}
+img{
+    opacity : 1.0;
 }
 
  .col-sm-4:hover {
