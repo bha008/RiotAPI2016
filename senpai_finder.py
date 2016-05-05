@@ -2,7 +2,7 @@ import json
 
 class SenpaiFinder:
 
-    def __init__(self, league, summoner_top_champs=None):
+    def __init__(self, league, summoner_top_champs):
         """
 
         :param summoner:

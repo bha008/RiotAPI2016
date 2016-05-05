@@ -234,6 +234,15 @@ class ritoWrap:
             region)
         return r[username.lower().strip()]['id']
 
+    def request_name_from_id(self, summonerId, region=None):
+        if region is None:
+            region = self.default_region
+        r = self.base_request('/api/lol/{region}/v1.4/summoner/{summonerIds}'.format(
+            region=region,
+            summonerIds=summonerId),
+            region)
+        return r[summonerId]['name']
+
     def request_master_league_summoners(self, region=None):
         if region is None:
             region = self.default_region
