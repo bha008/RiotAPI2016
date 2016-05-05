@@ -2,14 +2,13 @@ import json
 
 class SenpaiFinder:
 
-    def __init__(self, summoner, league, summoner_top_champs=None):
+    def __init__(self, league, summoner_top_champs=None):
         """
 
         :param summoner:
         :param league: a list of players and their top ppl
         :return:
         """
-        self.summoner = summoner
         self.league = league
         self.all_keys = self.get_all_champ_Ids()
         self.summoner_score_dict = self.generateScoreDict(summoner_top_champs)
