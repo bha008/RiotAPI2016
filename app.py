@@ -40,36 +40,20 @@ def info(region=None, username=None):
 
     with open('static/assets/riot_champion_data/lol-champions_6_8_1.json') as riot_champ_file:
         json_data = json.load(riot_champ_file)
-        # print 'keys in temp:', json_data.keys()
-        # print(json_data['data']['35'].get('image'))
-        # print(json_data['data'][champ_id0]['image'].get('full'))
-        # print(json_data['keys'].get(champ_id0))
-        # print(json_data['keys'].get(champ_id1))
-        # print(json_data['keys'].get(champ_id2))
-        #
-        # champ_name_0 = json_data['keys'].get(champ_id0)
-        # #champ_name_png_0 = 'http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/' + \
-        # #                   json_data['data'][champ_id0]['image'].get('full') + \
-        # #                    '.png'
-        # champ_name_png_0 = json_data['data'][champ_id0]['image'].get('full')
-        #
-        # champ_name_1 = json_data['keys'].get(champ_id1)
-        # champ_name_png_1 = json_data['data'][champ_id1]['image'].get('full')
-        #
-        # champ_name_2 = json_data['keys'].get(champ_id2)
-        # champ_name_png_2 = json_data['data'][champ_id2]['image'].get('full')
 
     riot_champ_file.close()
 
     top_champs = rw.request_all_champs(summ_id, region=region)
     league = json.load(open('solo_allchamps_challenger.json'))
     sf = SenpaiFinder(league, top_champs)
+    senpaiId, senpai_score_dict = sf.findSenpai()
+    summoner_score_dict = sf.generateScoreDict(top_champs)
     return render_template('index.html',
                             username=username,
                             score=rw.request_mastery_score(summ_id, region=region),
                             top_champs=top_champs,
                             riot_champ_file=json_data,
-                            senpai=rw.request_name_from_id(sf.findSenpai(), region=region)
+                            senpai=rw.request_name_from_id(senpaiId, region=region)
                             )
 
 if __name__ == '__main__':

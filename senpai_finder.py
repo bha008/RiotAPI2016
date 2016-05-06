@@ -11,6 +11,7 @@ class SenpaiFinder:
         """
         self.league = league
         self.all_keys = self.get_all_champ_Ids()
+        self.summoner_top_champs = summoner_top_champs
         self.summoner_score_dict = self.generateScoreDict(summoner_top_champs)
 
     def findSenpai(self):
@@ -21,13 +22,14 @@ class SenpaiFinder:
 
         max_sim = 0
         senpaiId = 0
+        senpai_score_dict={}
         for senpai in self.league:
             temp_sim = self.get_similarity(senpai['top_champs'])
             if temp_sim > max_sim:
                 max_sim = temp_sim
                 senpaiId = senpai['summonerId']
-
-        return senpaiId
+                senpai_score_dict = self.generateScoreDict(senpai['top_champs'])
+        return senpaiId, senpai_score_dict
 
     def get_similarity(self, senpai_champs):
         '''
