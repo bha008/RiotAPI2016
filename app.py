@@ -58,7 +58,9 @@ def info(region=None, username=None):
                             score=rw.request_mastery_score(summ_id, region=region),
                             top_champs=top_champs,
                             riot_champ_file=json_data,
-                            senpai=rw.request_name_from_id(senpaiId, region=region)
+                            senpai=rw.request_name_from_id(senpaiId, region=region),
+                            su_score=summoner_score_dict,
+                            se_data=senpai_score_dict
                             )
 
 if __name__ == '__main__':

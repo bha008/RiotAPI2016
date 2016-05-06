@@ -111,7 +111,7 @@
 </div>
 
 -->
-
+<canvas id="data_chart" width="100px" height="100px"></canvas>
 
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -132,6 +132,67 @@
     function closeNav() {
         document.getElementById("myNav").style.height = "0%";
     }
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
+<script>
+var ctx = document.getElementById("data_chart");
+var python_data = {{ su_score|tojson }};
+var keys = [];
+var su_values = [];
+var se_data = {{ se_data|tojson }};
+var se_values = [];
+
+for (var key in python_data) {
+    if (python_data.hasOwnProperty(key)) {
+        keys.push(key);
+        su_values.push(python_data[key]);
+        se_values.push(se_data[key]);
+    }
+}
+
+var data = {
+    labels: keys,
+    datasets: [
+        {
+            label: "summoner mastery",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: su_values,
+        },
+        {
+            label: "senpai mastery",
+            backgroundColor: "rgba(255,255,132,0.2)",
+            borderColor: "rgba(255,255,132,1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255,255,132,0.4)",
+            hoverBorderColor: "rgba(255,255,132,1)",
+            data: se_values,
+        }
+    ]
+};
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    height: 500,
+    width: 500,
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }],
+            xAxes: [{
+                display: false
+            }]
+        }
+    }
+});
 </script>
 
 {% endblock %}
