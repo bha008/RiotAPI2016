@@ -111,7 +111,6 @@
 </div>
 
 -->
-<canvas id="data_chart" width="100px" height="100px"></canvas>
 
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -136,7 +135,10 @@
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
+<canvas id="data_chart" width="200px" height="400px"></canvas>
+
 <script>
+
 var ctx = document.getElementById("data_chart");
 var python_data = {{ su_score|tojson }};
 var keys = [];
@@ -176,7 +178,7 @@ var data = {
     ]
 };
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: data,
     height: 500,
     width: 500,
