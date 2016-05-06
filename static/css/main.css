@@ -177,9 +177,14 @@ img{
   }
 }
 
-.select_region{
+#select_region{
     color: black;
     margin-top: 15px;
+    margin-right: 2px;
+}
+
+.navbar-nav .navbar-right > select{
+    color:black;
 }
 
  .navbar-default{
