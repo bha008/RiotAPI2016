@@ -27,7 +27,7 @@ def home():
 
     return render_template('form.html')
 
-@app.route('/info/<region>/<username>')
+@app.route('/info/<region>/<username>', methods=['GET', 'POST'])
 def info(region=None, username=None):
     """
     Displays some data computed from Riot API
@@ -36,6 +36,11 @@ def info(region=None, username=None):
     :param username:
     :return:
     """
+    if request.method == 'POST':
+        new_username = request.form['username']
+        new_region = request.form['region']
+        return redirect(url_for('info', username=new_username, region=new_region))
+
     summ_id = str(rw.request_id_from_name(username, region=region))
 
     with open('static/assets/riot_champion_data/lol-champions_6_8_1.json') as riot_champ_file:
