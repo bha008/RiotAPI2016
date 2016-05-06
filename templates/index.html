@@ -148,7 +148,7 @@ var se_values = [];
 
 for (var key in python_data) {
     if (python_data.hasOwnProperty(key)) {
-        keys.push(key);
+        keys.push( {{ riot_champ_file['data']|tojson }}[key]['name']);
         su_values.push(python_data[key]);
         se_values.push(se_data[key]);
     }
@@ -181,7 +181,8 @@ var myChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: data,
     height: 500,
-    width: 500,
+    fullWidth: false,
+    stacked: true,
     options: {
         scales: {
             yAxes: [{
