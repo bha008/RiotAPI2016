@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="loading">
     <meta charset="UTF-8">
     <title>ritoPls</title>
 
@@ -10,9 +10,43 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/css/main.css" rel="stylesheet" media="screen">
 
+    <!-- load animation test 1
+    <script type="text/javascript">
+    $(window).load(function() {
+        $(".loader").fadeOut("slow");
+    })
+    </script>
+    -->
+    <!-- load animation test 2
+        <script>
+            document.onreadystatechange = function () {
+      var state = document.readyState
+      if (state == 'interactive') {
+           document.getElementById('base_body').style.visibility="hidden";
+      } else if (state == 'complete') {
+          setTimeout(function(){
+             document.getElementById('interactive');
+                              document.getElementById('load').style.visibility="hidden";
+
+
+             document.getElementById('base_body').style.visibility="visible";
+          },2000);
+      }
+    }
+        </script>
+        -->
+
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                $(".loader").fadeOut("slow");
+            }, 1000);
+        };
+    </script>
 
 
 </head>
+<div class="loader" id="load"></div>
 <body id="base_body">
     <div class="container">
 

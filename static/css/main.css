@@ -203,3 +203,27 @@ img{
 .radarChart{
 
 }
+
+#loading {
+      background-image:
+
+   width: 100%;
+   height: 100%;
+   position: centered;
+   z-index: 999;
+   text-align:center;
+}
+
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	/*
+	background:  url("http://code.jquery.com/mobile/1.3.1/images/ajax-loader.gif") no-repeat 50% 50%;
+	*/
+	background:  url('/static/assets/images/loading-white.png') no-repeat 50% 50%;
+
+}
