@@ -21,7 +21,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                
+
 
                 <form class="form-inline navbar-form navbar-right" role="search" method="post">
                     <div class="form-group">
@@ -54,10 +54,24 @@
 <!--
 <p style="font-size:30px;cursor:pointer;text-align:left" onclick="openNav()">☰ Menu</p>
 -->
-<h1> {{username}}'s Mastery Info!</h1>
-<p>Total Mastery Score: {{score}}</p>
-<h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
-<h4>Top Champion Scores</h4>
+<div class="container-fluid">
+    <div class="row">
+        <!-- mastery and senpai information -->
+        <div class="col-sm-5">
+            <h1> {{username}}'s Mastery Info!</h1>
+            <p>Total Mastery Score: {{score}}</p>
+            <h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
+            <h4>Top Champion Scores</h4>
+
+        </div>
+
+        <!-- radio chart -->
+        <div class="col-sm-7">
+
+        </div>
+    </div>
+</div>
+
 
 
 <!-- carousel section -->
