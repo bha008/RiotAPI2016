@@ -21,7 +21,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                
+
 
                 <form class="form-inline navbar-form navbar-right" role="search" method="post">
                     <div class="form-group">
@@ -54,10 +54,24 @@
 <!--
 <p style="font-size:30px;cursor:pointer;text-align:left" onclick="openNav()">☰ Menu</p>
 -->
-<h1> {{username}}'s Mastery Info!</h1>
-<p>Total Mastery Score: {{score}}</p>
-<h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
-<h4>Top Champion Scores</h4>
+<div class="container-fluid">
+    <div class="row">
+        <!-- mastery and senpai information -->
+        <div class="col-sm-5">
+            <h1> {{username}}'s Mastery Info!</h1>
+            <p>Total Mastery Score: {{score}}</p>
+            <h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
+            <h4>Top Champion Scores</h4>
+
+        </div>
+
+        <!-- radio chart -->
+        <div class="col-sm-7">
+
+        </div>
+    </div>
+</div>
+
 
 
 <!-- carousel section -->
@@ -139,64 +153,63 @@
 
 <script>
 
-var ctx = document.getElementById("data_chart");
-var python_data = {{ su_score|tojson }};
-var keys = [];
-var su_values = [];
-var se_data = {{ se_data|tojson }};
-var se_values = [];
+    var ctx = document.getElementById("data_chart");
+    var python_data = {{ su_score|tojson }};
+    var keys = [];
+    var su_values = [];
+    var se_data = {{ se_data|tojson }};
+    var se_values = [];
 
-for (var key in python_data) {
-    if (python_data.hasOwnProperty(key)) {
-        keys.push(key);
-        su_values.push(python_data[key]);
-        se_values.push(se_data[key]);
-    }
-}
-
-var data = {
-    labels: keys,
-    datasets: [
-        {
-            label: "summoner mastery",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: su_values,
-        },
-        {
-            label: "senpai mastery",
-            backgroundColor: "rgba(255,255,132,0.2)",
-            borderColor: "rgba(255,255,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,255,132,0.4)",
-            hoverBorderColor: "rgba(255,255,132,1)",
-            data: se_values,
-        }
-    ]
-};
-var myChart = new Chart(ctx, {
-    type: 'horizontalBar',
-    data: data,
-    height: 500,
-    width: 500,
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }],
-            xAxes: [{
-                display: false
-            }]
+    for (var key in python_data) {
+        if (python_data.hasOwnProperty(key)) {
+            keys.push(key);
+            su_values.push(python_data[key]);
+            se_values.push(se_data[key]);
         }
     }
-});
+
+    var data = {
+        labels: keys,
+        datasets: [
+            {
+                label: "summoner mastery",
+                backgroundColor: "rgba(255,99,132,0.2)",
+                borderColor: "rgba(255,99,132,1)",
+                borderWidth: 1,
+                hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                hoverBorderColor: "rgba(255,99,132,1)",
+                data: su_values,
+            },
+            {
+                label: "senpai mastery",
+                backgroundColor: "rgba(255,255,132,0.2)",
+                borderColor: "rgba(255,255,132,1)",
+                borderWidth: 1,
+                hoverBackgroundColor: "rgba(255,255,132,0.4)",
+                hoverBorderColor: "rgba(255,255,132,1)",
+                data: se_values,
+            }
+        ]
+    };
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: data,
+        height: 500,
+        width: 500,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }],
+                xAxes: [{
+                    display: false
+                }]
+            }
+        }
+    });
 </script>
-
 {% endblock %}
 
 
