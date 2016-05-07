@@ -57,7 +57,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- mastery and senpai information -->
-        <div class="col-sm-5">
+        <div class="col-sm-5 vertical-align" id="masteryInfo">
             <h1> {{username}}'s Mastery Info!</h1>
             <p>Total Mastery Score: {{score}}</p>
             <h2>Your LoL Senpai is:  <span id="senpai_text">{{ senpai }}</span></h2>
@@ -97,8 +97,8 @@
         </div>
 
         <!-- radio chart -->
-        <div class="col-sm-7">
-            <canvas id="radar_chart" width="200px" height="400px"></canvas>
+        <div class="col-sm-7" id="radarChart">
+            <canvas id="radar_chart" width="200px" height="200px"></canvas>
         </div>
     </div>
 </div>

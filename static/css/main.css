@@ -19,7 +19,6 @@ h1 {
 }
 #base_body{
 
-    margin: 50px;
 
 	background-image: url("/static/assets/images/bg/confirm_bg.jpg");
 	background-repeat: no-repeat;
@@ -190,4 +189,17 @@ img{
  .navbar-default{
     background-color: #E8E8E8;
     border-color: #030033;
+}
+
+.vertical-align{
+
+}
+
+#masteryInfo{
+    margin-top: 100px;
+
+    }
+
+.radarChart{
+
 }
