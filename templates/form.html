@@ -8,22 +8,28 @@
     <link href="/static/css/main.css" rel="stylesheet" media="screen">
 </head>
     <br>
-    <form action="" id="main_form" method="post">
+    <form action="" class="form-in-line" id="main_form" method="post">
         <h1 style="color:#cccccc;">Please enter info</h1>
-        <input type="text" placeholder="Username" name="username" value="{{request.form.username }}">
-        <select name="region">
-            <option value="na">North America</option>
-            <option value="euw">Europe West</option>
-            <option value="eune">Europe Nordic & East</option>
-            <option value="br">Brazil</option>
-            <option value="kr">Korea</option>
-            <option value="tr">Turkey</option>
-            <option value="ru">Russsia</option>
-            <option value="lan">Latin America North</option>
-            <option value="las">Latin America South</option>
-            <option value="oce">Oceania</option>
-        </select>
-        <input class="btn btn-default" type="submit" value="Search">
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Username" name="username" value="{{request.form.username }}">
+                <select class="form-control" name="region">
+                    <option value="na">North America</option>
+                    <option value="euw">Europe West</option>
+                    <option value="eune">Europe Nordic & East</option>
+                    <option value="br">Brazil</option>
+                    <option value="kr">Korea</option>
+                    <option value="tr">Turkey</option>
+                    <option value="ru">Russsia</option>
+                    <option value="lan">Latin America North</option>
+                    <option value="las">Latin America South</option>
+                    <option value="oce">Oceania</option>
+                </select>
+                <input class="btn btn-default" type="submit" value="Search">
+            </div>
+
+        </div>
+
     </form>
 	<!--
     <audio loop autoplay="autoplay">

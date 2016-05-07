@@ -136,6 +136,7 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
 <canvas id="data_chart" width="200px" height="400px"></canvas>
+<canvas id="radar_chart" width="200px" height="400px"></canvas>
 
 <script>
 
@@ -145,12 +146,25 @@ var keys = [];
 var su_values = [];
 var se_data = {{ se_data|tojson }};
 var se_values = [];
+var summ_types = { "Marksman":0, "Assassin":0, "Support":0, "Mage":0, "Fighter":0, "Tank":0 };
+var senpai_types = { "Marksman":0, "Assassin":0, "Support":0, "Mage":0, "Fighter":0, "Tank":0 };
+var d = {{ riot_champ_file|tojson }};
+var summ_types_values = [];
+var senpai_types_values = [];
 
 for (var key in python_data) {
     if (python_data.hasOwnProperty(key)) {
         keys.push( {{ riot_champ_file['data']|tojson }}[key]['name']);
         su_values.push(python_data[key]);
         se_values.push(se_data[key]);
+
+    var a = {{ riot_champ_file['data']|tojson }}[key]['tags']
+        a.forEach(function( tag ) {
+            summ_types[tag] = summ_types[tag] + python_data[key];
+            senpai_types[tag] = senpai_types[tag] + se_data[key];
+        });
+
+
     }
 }
 
@@ -194,6 +208,56 @@ var myChart = new Chart(ctx, {
                 display: false
             }]
         }
+    }
+});
+
+for( category in summ_types){
+    if (summ_types.hasOwnProperty(category)) {
+        summ_types_values.push( summ_types[category] );
+        senpai_types_values.push( senpai_types[category] );
+    }
+}
+
+data = {
+    labels: Object.keys(summ_types),
+    datasets: [
+        {
+            label: "Summoner Strengths",
+            backgroundColor: "rgba(179,181,198,0.2)",
+            borderColor: "rgba(179,181,198,1)",
+            pointBackgroundColor: "rgba(179,181,198,1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(179,181,198,1)",
+            data: summ_types_values
+        },
+        {
+            label: "Senpai Strengths",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            pointBackgroundColor: "rgba(255,99,132,1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(255,99,132,1)",
+            data: senpai_types_values
+        }
+    ]
+};
+
+ctx = document.getElementById("radar_chart");
+
+var radChart = new Chart(ctx, {
+    type: 'radar',
+    data: data,
+    height: 500,
+    fullWidth: false,
+    stacked: true,
+    options: {
+            scale: {
+                ticks: {
+                    beginAtZero: true
+                }
+            }
     }
 });
 </script>

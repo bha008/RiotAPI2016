@@ -42,8 +42,7 @@ class SenpaiFinder:
 
         for key in self.summoner_score_dict:
             if self.summoner_score_dict[key] > 0:
-                similarity += pow(self.summoner_score_dict[key] - senpai_score_dict[key],2)
-        print (similarity)
+                similarity += pow(self.summoner_score_dict[key] - senpai_score_dict[key], 2)
         return 1.0/(similarity + 1)
 
     def get_all_champ_Ids(self):
@@ -71,7 +70,7 @@ class SenpaiFinder:
         total = sum(d.values())
 
         for champ in top_champs:
-            d[champ['championId']] /= float(total)
+            d[champ['championId']] = int(d[champ['championId']]/float(total)*10000)/10000.0
         return d
 
 
