@@ -151,7 +151,12 @@
 
 </script>
 
-<canvas id="data_chart" width="200px" height="400px"></canvas>
+<div class="chartWrapper">
+    <div class="chartAreaWrapper" >
+        <canvas id="data_chart" width="10000px" height="500px"></canvas>
+    </div>
+</div>
+
 
 
 <script>
@@ -207,21 +212,35 @@ var data = {
         }
     ]
 };
+Chart.defaults.global.responsive = false;
 var myChart = new Chart(ctx, {
-    type: 'horizontalBar',
+    type: 'bar',
     data: data,
-    height: 500,
+    responsive: false,
     fullWidth: false,
     stacked: true,
     options: {
+        maintainAspectRatio: true,
+        defaultFontSize: 20,
+        defaultColor: "rgba(255,255,255,0.2)",
+
         scales: {
-            yAxes: [{
+            pointLabels: {
+                fontSize: 20
+            },
+
+            xAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:true,
+                    fontSize: 20
+                },
+                gridLines: {
+                    color: "rgba(255,255,255,0.2)"
                 }
             }],
-            xAxes: [{
-                display: false
+            yAxes: [{
+                display: false,
+
             }]
         }
     }
@@ -260,6 +279,7 @@ data = {
     ]
 };
 
+Chart.defaults.global.responsive = true;
 ctx = document.getElementById("radar_chart");
 
 var radChart = new Chart(ctx, {

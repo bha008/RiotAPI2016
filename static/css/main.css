@@ -227,3 +227,19 @@ img{
 	background:  url('/static/assets/images/loading-white.png') no-repeat 50% 50%;
 
 }
+
+.chartWrapper{
+    position: relative;
+}
+
+.chartWrapper > canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events:none;
+}
+
+.chartAreaWrapper {
+
+    overflow-x: scroll;
+}
