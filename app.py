@@ -1,7 +1,8 @@
-from flask import Flask, render_template, redirect, url_for, Response, request, json
+from flask import Flask, render_template, redirect, url_for, g, request, json
 from riotAPIwrapper import ritoWrap
 from senpai_finder import SenpaiFinder
 import os
+import time
 # ...
 
 app = Flask(__name__)
@@ -26,6 +27,23 @@ def home():
         return redirect(url_for('info', username=username, region=region))
 
     return render_template('form.html')
+
+@app.before_request
+def before_request():
+    g.request_start_time = time.time()
+    g.request_time = lambda: "%.5fs" % (time.time() - g.request_start_time)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect(url_for('home'))
+
+@app.errorhandler(500)
+def internal_error(e):
+    return redirect(url_for('home'))
+
+@app.errorhandler(429)
+def internal_error(e):
+    return redirect(url_for('home'))
 
 @app.route('/info/<region>/<username>', methods=['GET', 'POST'])
 def info(region=None, username=None):
@@ -56,6 +74,7 @@ def info(region=None, username=None):
     sf = SenpaiFinder(league, top_champs)
     senpaiId, senpai_score_dict = sf.findSenpai()
     summoner_score_dict = sf.generateScoreDict(top_champs)
+    t = request.values.get('t', 0)
     return render_template('index.html',
                             username=username,
                             score=rw.request_mastery_score(summ_id, region=region),
