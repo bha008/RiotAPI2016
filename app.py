@@ -50,6 +50,9 @@ def info(region=None, username=None):
 
     top_champs = rw.request_all_champs(summ_id, region=region)
     league = json.load(open('solo_allchamps_challenger.json'))
+
+    # TODO Need to  process riot_champ_file in some way.. taking too long to run
+
     sf = SenpaiFinder(league, top_champs)
     senpaiId, senpai_score_dict = sf.findSenpai()
     summoner_score_dict = sf.generateScoreDict(top_champs)
