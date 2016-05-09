@@ -43,7 +43,7 @@ def info(region=None, username=None):
 
     summ_id = str(rw.request_id_from_name(username, region=region))
 
-    with open('static/assets/riot_champion_data/lol-champions_6_8_1.json') as riot_champ_file:
+    with open('static/assets/riot_champion_data/lol-champions_latest.json') as riot_champ_file:
         json_data = json.load(riot_champ_file)
 
     riot_champ_file.close()
