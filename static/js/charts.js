@@ -41,7 +41,7 @@ function drawBarGraph(){
         labels: keys,
         datasets: [
             {
-                label: "summoner mastery",
+                label: "Summoner",
                 backgroundColor: "rgba(255,99,132,0.2)",
                 borderColor: "rgba(255,99,132,1)",
                 borderWidth: 1,
@@ -50,7 +50,7 @@ function drawBarGraph(){
                 data: su_values,
             },
             {
-                label: "senpai mastery",
+                label: "Senpai",
                 backgroundColor: "rgba(255,255,132,0.2)",
                 borderColor: "rgba(255,255,132,1)",
                 borderWidth: 1,
@@ -102,7 +102,7 @@ function drawRadarGraph(){
         labels: Object.keys(summ_types),
         datasets: [
             {
-                label: "Summoner Strengths",
+                label: "Summoner",
                 backgroundColor: "rgba(100,100,255,0.2)",
                 borderColor: "rgba(100,100,255,1)",
                 pointBackgroundColor: "rgba(100,100,255,1)",
@@ -112,7 +112,7 @@ function drawRadarGraph(){
                 data: summ_types_values
             },
             {
-                label: "Senpai Strengths",
+                label: "Senpai",
                 backgroundColor: "rgba(255,99,132,0.2)",
                 borderColor: "rgba(255,99,132,1)",
                 pointBackgroundColor: "rgba(255,99,132,1)",
