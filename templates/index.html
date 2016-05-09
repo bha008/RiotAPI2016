@@ -130,14 +130,20 @@
 
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <div class="overlay-content">
+    <div class="overlay-content" id="about-popup">
+        <!--
         <a href="#">About</a>
         <a href="#">Home</a>
         <a href="#">Search</a>
         <p> hello world! </p>
         <p>bh&bh</p>
+        -->
     </div>
 </div>
+
+<script>
+
+    </script>
 
 
 
@@ -148,6 +154,12 @@
 </div>
 
 <script>
+
+
+        $(function(){
+      $("#about-popup").load("/static/assets/about/about.html");
+    });
+
     function openNav() {
         document.getElementById("myNav").style.height = "100%";
     }
@@ -155,7 +167,6 @@
     function closeNav() {
         document.getElementById("myNav").style.height = "0%";
     }
-
 
 </script>
 <script src="/static/js/charts.js"></script>
@@ -178,6 +189,8 @@ drawBarGraph();
 drawRadarGraph();
 
 </script>
+
+
 
 {% endblock %}
 
