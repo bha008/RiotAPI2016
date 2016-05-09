@@ -103,7 +103,7 @@
     </div>
 
     <div class="chartWrapper">
-        <div class="chartAreaWrapper" >
+        <div class="chartAreaWrapper">
             <canvas id="data_chart" width="10000px" height="500px"></canvas>
         </div>
     </div>
@@ -118,7 +118,7 @@
 
 <script>
 
-    </script>
+</script>
 
 
 
@@ -127,8 +127,8 @@
 <script>
 
 
-        $(function(){
-      $("#about-popup").load("/static/assets/about/about.html");
+    $(function(){
+        $("#about-popup").load("/static/assets/about/about.html");
     });
 
     function openNav() {
@@ -143,26 +143,23 @@
 <script src="/static/js/charts.js"></script>
 <script>
 
-var ctx = document.getElementById("data_chart");
-var python_data = {{ su_score|tojson }};
-var keys = [];
-var su_values = [];
-var se_data = {{ se_data|tojson }};
-var se_values = [];
-var summ_types = { "Marksman":0, "Assassin":0, "Support":0, "Mage":0, "Fighter":0, "Tank":0 };
-var senpai_types = { "Marksman":0, "Assassin":0, "Support":0, "Mage":0, "Fighter":0, "Tank":0 };
-var d = {{ riot_champ_file|tojson }};
-var summ_types_values = [];
-var senpai_types_values = [];
+    var ctx = document.getElementById("data_chart");
+    var python_data = {{ su_score|tojson }};
+    var keys = [];
+    var su_values = [];
+    var se_data = {{ se_data|tojson }};
+    var se_values = [];
+    var summ_types = { "Marksman":0, "Assassin":0, "Support":0, "Mage":0, "Fighter":0, "Tank":0 };
+    var senpai_types = { "Marksman":0, "Assassin":0, "Support":0, "Mage":0, "Fighter":0, "Tank":0 };
+    var d = {{ riot_champ_file|tojson }};
+    var summ_types_values = [];
+    var senpai_types_values = [];
 
-initGraphs();
-drawBarGraph();
-drawRadarGraph();
+    initGraphs();
+    drawBarGraph();
+    drawRadarGraph();
 
 </script>
-
-
-
 {% endblock %}
 
 
