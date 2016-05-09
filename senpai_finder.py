@@ -66,7 +66,7 @@ class SenpaiFinder:
             d[int(key)] = 0
 
         for champ in top_champs:
-            d[champ['championId']] = champ['championLevel'] * 5000 + champ['championPointsSinceLastLevel']
+            d[champ['championId']] = champ['championLevel'] * 10000 + champ['championPointsSinceLastLevel']
         total = sum(d.values())
 
         for champ in top_champs:
