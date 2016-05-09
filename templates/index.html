@@ -130,16 +130,36 @@
 
 <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <div class="overlay-content">
+    <div class="overlay-content" id="about-popup">
+        <!--
         <a href="#">About</a>
         <a href="#">Home</a>
         <a href="#">Search</a>
         <p> hello world! </p>
         <p>bh&bh</p>
+        -->
     </div>
 </div>
 
 <script>
+
+    </script>
+
+
+
+<div class="chartWrapper">
+    <div class="chartAreaWrapper" >
+        <canvas id="data_chart" width="10000px" height="500px"></canvas>
+    </div>
+</div>
+
+<script>
+
+
+        $(function(){
+      $("#about-popup").load("/static/assets/about/about.html");
+    });
+
     function openNav() {
         document.getElementById("myNav").style.height = "100%";
     }
@@ -148,16 +168,7 @@
         document.getElementById("myNav").style.height = "0%";
     }
 
-
 </script>
-
-<div class="chartWrapper">
-    <div class="chartAreaWrapper" >
-        <canvas id="data_chart" width="10000px" height="500px"></canvas>
-    </div>
-</div>
-
-
 <script src="/static/js/charts.js"></script>
 <script>
 
@@ -178,6 +189,8 @@ drawBarGraph();
 drawRadarGraph();
 
 </script>
+
+
 
 {% endblock %}
 
