@@ -28,10 +28,7 @@ def home():
 
     return render_template('form.html')
 
-@app.before_request
-def before_request():
-    g.request_start_time = time.time()
-    g.request_time = lambda: "%.5fs" % (time.time() - g.request_start_time)
+
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -44,6 +41,11 @@ def internal_error(e):
 @app.errorhandler(429)
 def internal_error(e):
     return redirect(url_for('home'))
+
+@app.before_request
+def before_request():
+    g.request_start_time = time.time()
+    g.request_time = lambda: "%.5fs" % (time.time() - g.request_start_time)
 
 @app.route('/info/<region>/<username>', methods=['GET', 'POST'])
 def info(region=None, username=None):
