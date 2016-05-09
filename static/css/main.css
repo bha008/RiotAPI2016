@@ -6,25 +6,15 @@
     text-align: center;
 }
 
-#form_body{
-	background-image: url("/static/assets/images/bg/endOfTutorialBackground.png");
-	background-repeat: no-repeat;
-
-	background-size: cover;
-
+body{
+	background-image: url("/static/assets/images/bg/test2.png");
+	background-repeat: repeat;
 }
 
 h1 {
     /*text-shadow: 1px 1px #000000;*/
 }
-#base_body{
 
-
-	background-image: url("/static/assets/images/bg/confirm_bg.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-
-}
 #senpai_text {
 -webkit-animation:rainbow 1s infinite;
 -ms-animation:rainbow 1s infinite;
