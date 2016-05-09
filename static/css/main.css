@@ -233,3 +233,9 @@ img{
 
     overflow-x: scroll;
 }
+
+.main_container{
+    padding-bottom: 30px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
