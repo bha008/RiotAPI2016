@@ -82,7 +82,7 @@ animation:rainbow 1s infinite;
     position: relative;
 
     align-content: center;
-    margin: auto;
+    margin-top: 7%;
     text-align: center;
     	color:lightblue;
 }
@@ -179,8 +179,9 @@ img{
 }
 
  .navbar-default{
-    background-color: #E8E8E8;
+    background-color: #000000;
     border-color: #030033;
+    color: blue;
 }
 
 .vertical-align{
