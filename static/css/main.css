@@ -85,12 +85,16 @@ animation:rainbow 1s infinite;
     margin-top: 7%;
     text-align: center;
     	color:lightblue;
+
 }
 
 .container-fluid{
     margin-left:5%;
-    margin-right:5%;
+    margin-right:5%
+}
 
+#containerMain{
+    	    box-shadow: 0px 16px 100px 6px #000000;
 }
 
 
