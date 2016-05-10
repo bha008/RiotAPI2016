@@ -3,6 +3,8 @@
 ## Created by:
 Brendan Ha and Brian Ho
 
+# [Here's the app!](http://lolsenpaifinder.herokuapp.com/)
+
 ## Goals:
 LoL Senpai Finder compares your summoner mastery data and matches you with a player with similar playstyle in the Challenger tier, or as we call it, your [LoL Senpai](http://lolsenpaifinder.heroku.com/). 
 
