@@ -1,9 +1,9 @@
-# RiotAPI2016
 # Riot API 2016 Challenge LoL Senpai Finder
 ## Created by:
 Brendan Ha and Brian Ho
 
 # [Here's the app!](http://lolsenpaifinder.herokuapp.com/)
+# [Official Challenge Rules](https://developer.riotgames.com/discussion/announcements/show/eoq3tZd1)
 
 ## Goals:
 LoL Senpai Finder compares your summoner mastery data and matches you with a player with similar playstyle in the Challenger tier, or as we call it, your [LoL Senpai](http://lolsenpaifinder.heroku.com/). 
