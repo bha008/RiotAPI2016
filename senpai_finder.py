@@ -50,7 +50,7 @@ class SenpaiFinder:
         loads up a json object containing champ information and returns the champId's as a list
         :return:
         '''
-        current_champs = json.load(open('static/assets/riot_champion_data/lol-champions_6_8_1.json'))['data']
+        current_champs = json.load(open('static/assets/riot_champion_data/lol-champions_latest.json'))['data']
         return current_champs.keys()
 
     def generateScoreDict(self, top_champs):

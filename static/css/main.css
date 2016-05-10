@@ -246,11 +246,13 @@ img{
 
 #masteryInfo{
     margin-top: 10px;
-
-    }
+    background-color: rgba(100, 100, 100, 1);
+    border-radius: 20px;
+    height: 500px;
+}
 
 .radarChart{
-
+    height: 500px;
 }
 
 #loading {
@@ -290,12 +292,13 @@ img{
 
 .chartAreaWrapper {
     height: 700px;
+    margin-right: 20px;
+    padding-right:20px;
     overflow-y: scroll;
 }
 
 .main_container{
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.8);
 }
