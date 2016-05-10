@@ -93,10 +93,8 @@ animation:rainbow 1s infinite;
 
 }
 
-.navbar-brand{
-text-shadow: 0 0 3px #FF0000;
-font-size: 25px;
-}
+
+
 
 .carousel .carousel-control {
   visibility: hidden;
@@ -192,12 +190,46 @@ img{
  .navbar-default{
     background-color: #000000;
     border-color: #030033;
-    color: blue;
 }
 
 .vertical-align{
 
 }
+
+
+.navbar .nav > li > a {
+    float: none;
+    color: #ffffff;
+    font-size:20px;
+        transition: 2.0s;
+
+}
+.navbar .nav > li > a:hover {
+    float: none;
+    color: #5FC8D6;
+}
+
+
+#navbar-brandname{
+  font-size: 30px;
+  color: #ffffff;
+      transition: 2.0s;
+
+}
+
+#navbar-brandname:hover{
+  color: #228DFF;
+}
+
+@-webkit-keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+}
+
 
 #masteryInfo{
     margin-top: 100px;
