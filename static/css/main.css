@@ -297,3 +297,8 @@ img{
     background-repeat: repeat-x;
     border-color: #252525;
 }
+
+#about-popup{
+    align-content: center;
+    margin: auto;
+}
