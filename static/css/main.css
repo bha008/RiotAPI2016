@@ -233,8 +233,8 @@ img{
 }
 
 .chartAreaWrapper {
-
-    overflow-x: scroll;
+    height: 700px;
+    overflow-y: scroll;
 }
 
 .main_container{

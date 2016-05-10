@@ -36,7 +36,7 @@ function initGraphs(){
 }
 
 function drawBarGraph(){
-    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.responsive = true;
     var data = {
         labels: keys,
         datasets: [
@@ -61,7 +61,7 @@ function drawBarGraph(){
         ]
     };
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'horizontalBar',
         data: data,
         responsive: false,
         fullWidth: false,
@@ -76,7 +76,7 @@ function drawBarGraph(){
                     fontSize: 20
                 },
 
-                xAxes: [{
+                yAxes: [{
                     ticks: {
                         beginAtZero:true,
                         fontSize: 20
@@ -85,7 +85,7 @@ function drawBarGraph(){
                         color: "rgba(255,255,255,0.2)"
                     }
                 }],
-                yAxes: [{
+                xAxes: [{
                     display: false,
 
                 }]
