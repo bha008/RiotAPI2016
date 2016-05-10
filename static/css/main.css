@@ -87,6 +87,17 @@ animation:rainbow 1s infinite;
     	color:lightblue;
 }
 
+.container-fluid{
+    margin-left:5%;
+    margin-right:5%;
+
+}
+
+.navbar-brand{
+text-shadow: 0 0 3px #FF0000;
+font-size: 25px;
+}
+
 .carousel .carousel-control {
   visibility: hidden;
   bottom:0;
@@ -136,7 +147,7 @@ img{
     width: 80%;
     text-align:left;
     margin-top: 30px;
-    margin-left:10%;
+
 
 }
 
