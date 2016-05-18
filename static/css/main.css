@@ -9,8 +9,7 @@
 
 
 body{
-	background-image: url("/static/assets/images/bg/test3.png");
-	background-repeat: repeat;
+	background: #000 url('/static/assets/images/bg/bgbrush.jpg') no-repeat center top;
 }
 
 #form_body{
